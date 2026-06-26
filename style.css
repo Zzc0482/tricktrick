@@ -645,24 +645,6 @@ img { max-width: 100%; display: block; }
     height: 1.2em;
 }
 
-.detail-content .detail-body .dialogue {
-    text-indent: 0;
-    padding-left: 1.2em;
-    border-left: 3px solid var(--primary-light);
-    color: var(--text-muted);
-    font-style: italic;
-    margin: 1.2em 0;
-}
-
-.detail-content .detail-body .section-break {
-    display: block;
-    text-align: center;
-    color: var(--primary-light);
-    font-size: 1.2rem;
-    letter-spacing: 8px;
-    margin: 1.6em 0;
-}
-
 .detail-content .detail-word-count {
     display: inline-block;
     font-size: 0.75rem;

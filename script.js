@@ -29,7 +29,7 @@ const blogPosts = [
         title: '金绳玉锁',
         desc: '赵沭同十六岁决定离家出走。',
         date: '2026-06-18',
-        file: 'diaries/jinsheng.txt'
+        file: 'diaries/jinyu.txt'
     },
     {
         id: 4,
@@ -38,7 +38,7 @@ const blogPosts = [
         title: '甩卖二十二',
         desc: '拜拜啦拜拜哦关于爱情我仍年轻。',
         date: '2026-06-14',
-        file: 'diaries/4.txt'
+        file: 'diaries/22.txt'
     },
     {
         id: 5,
@@ -47,7 +47,7 @@ const blogPosts = [
         title: '是非对错成败之',
         desc: '没有花，这刹那被破坏吗。',
         date: '2026-06-10',
-        file: 'diaries/5.txt'
+        file: 'diaries/shifei.txt'
     },
     {
         id: 6,
@@ -67,56 +67,28 @@ const skillDetails = [
         emoji: '📖',
         title: '阅读',
         tag: '角落',
-        content: `我读书很慢，像在走路，不是赶路。
-
-最近在读的是：
-• 张爱玲《小团圆》—— 像在窥看一个人的梦
-• 邱妙津《鳄鱼手记》—— 字字是血，读得很痛
-• 沈从文《边城》—— 每次读都像回到湘西的河边
-
-一本书读完，就像交了一个朋友。有些朋友会走，但书一直都在书架上，随时可以回去看看。`
+        content: `到时候再写。`
     },
     {
         id: 'skill-2',
         emoji: '🖋️',
         title: '写作',
         tag: '角落',
-        content: `写作对我来说，是把自己摊开来晾晒。
-
-我在写的故事：
-• 赵沭同的离家出走（正在进行中）
-• 一些关于雨天的短篇
-• 还有很多只开了头的文档
-
-其实写得最多的是日记，在深夜、在雨天、在睡不着的时候。这些文字不需要给别人看，但写出来之后，心里就轻了一些。`
+        content: `到时候再写。`
     },
     {
         id: 'skill-3',
         emoji: '☕',
         title: '日常',
         tag: '角落',
-        content: `我是一个很容易满足的人。
-
-一杯手冲咖啡的香气，可以让我安静整个下午。
-窗外的树影在墙上晃动，我可以看很久。
-闻到雨后泥土的味道，会莫名其妙地开心。
-
-最近迷上了收集不同种类的茶，装在小罐子里，像收集四季。`
+        content: `到时候再写。`
     },
     {
         id: 'skill-4',
         emoji: '🎞️',
         title: '光影',
         tag: '角落',
-        content: `用镜头记录一些快要消失的瞬间。
-
-喜欢拍的是：
-• 路灯下的影子
-• 旧墙上的藤蔓
-• 玻璃窗上的雨滴
-• 黄昏时分的天空
-
-拍照的时候，世界会变得很安静。那个瞬间被凝固下来，像一首很短的诗。`
+        content: `诶！。`
     }
 ];
 
@@ -153,7 +125,7 @@ function countWords(text) {
     return total;
 }
 
-// ========== 格式化长文本 ==========
+// ========== 格式化长文本（简化版 - 只保留段落换行） ==========
 function formatLongText(text) {
     const lines = text.split('\n');
     let result = [];
@@ -161,7 +133,8 @@ function formatLongText(text) {
 
     for (let i = 0; i < lines.length; i++) {
         let line = lines[i];
-
+        
+        // 空行处理
         if (line.trim() === '') {
             emptyCount++;
             if (emptyCount === 1) {
@@ -171,19 +144,8 @@ function formatLongText(text) {
         }
         emptyCount = 0;
 
-        const isDialogue = /^[「『""''《]/.test(line.trim()) ||
-                          (/^.{1,30}[:：]/.test(line.trim()) && line.trim().length < 40);
-
-        const isSectionBreak = /^[\*\-—]{3,}$/.test(line.trim()) ||
-                              /^[~～]{3,}$/.test(line.trim());
-
-        if (isSectionBreak) {
-            result.push(`<span class="section-break">✦</span>`);
-        } else if (isDialogue) {
-            result.push(`<p class="dialogue">${escapeHtml(line)}</p>`);
-        } else {
-            result.push(`<p>${escapeHtml(line)}</p>`);
-        }
+        // 所有内容都作为普通段落，不做任何自动识别
+        result.push(`<p>${escapeHtml(line)}</p>`);
     }
 
     return result.join('');
