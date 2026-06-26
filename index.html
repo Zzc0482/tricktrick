@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的个人博客</title>
+    <title>枝之杂记</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- 导航栏 -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <a href="#" class="nav-logo">MyBlog</a>
+            <a href="#" class="nav-logo">✦ 枝</a>
             <ul class="nav-links">
                 <li><a href="#home">首页</a></li>
-                <li><a href="#about">关于我</a></li>
-                <li><a href="#blog">博客</a></li>
-                <li><a href="#skills">技能</a></li>
+                <li><a href="#about">关于枝</a></li>
+                <li><a href="#blog">文字</a></li>
+                <li><a href="#skills">角落</a></li>
                 <li><a href="#contact">联系</a></li>
             </ul>
         </div>
@@ -25,14 +25,14 @@
     <section class="hero" id="home">
         <div class="hero-content">
             <h1 class="hero-title">
-                <span class="greeting">你好，我是</span>
-                <span class="name">你的名字</span>
+                <span class="greeting">内有恶犬生人勿进</span>
+                <span class="name">枝</span>
             </h1>
-            <p class="hero-subtitle">一个热爱技术与生活的开发者</p>
-            <p class="hero-desc">专注于 Web 开发，喜欢探索新技术，用代码创造有趣的东西。</p>
+            <p class="hero-subtitle">秘密基地</p>
+            <p class="hero-desc">这里存放着一只同人女的文字。</p>
             <div class="hero-buttons">
-                <a href="#blog" class="btn btn-primary">阅读博客</a>
-                <a href="#contact" class="btn btn-outline">联系我</a>
+                <a href="#blog" class="btn btn-primary">阅读文字</a>
+                <a href="#contact" class="btn btn-outline">写信给我</a>
             </div>
         </div>
     </section>
@@ -43,14 +43,15 @@
             <h2 class="section-title">关于我</h2>
             <div class="about-grid">
                 <div class="about-text">
-                    <p>我是一名充满热情的 Web 开发者，喜欢用代码构建简洁优雅的用户体验。这里是我分享技术笔记和生活点滴的地方。</p>
-                    <p>业余时间我喜欢阅读、旅行和摄影，相信技术可以让生活更美好。</p>
+                    <p>我是枝。</p>
+                    <p>这里只有产品同人！</p>
+                    <p class="signature">红白网站指路tricktrick</p>
                 </div>
                 <div class="about-avatar">
                     <div class="avatar-placeholder">
                         <svg viewBox="0 0 120 120" fill="none">
-                            <circle cx="60" cy="45" r="20" fill="#6366f1" opacity="0.3"/>
-                            <ellipse cx="60" cy="95" rx="35" ry="25" fill="#6366f1" opacity="0.3"/>
+                            <circle cx="60" cy="45" r="20" fill="#8b5cf6" opacity="0.3"/>
+                            <ellipse cx="60" cy="95" rx="35" ry="25" fill="#8b5cf6" opacity="0.3"/>
                         </svg>
                     </div>
                 </div>
@@ -58,62 +59,73 @@
         </div>
     </section>
 
-    <!-- 博客文章 -->
+    <!-- 文字/日记卡片 -->
     <section class="blog section" id="blog">
         <div class="container">
-            <h2 class="section-title">最新文章</h2>
+            <h2 class="section-title">近日文字</h2>
             <div class="blog-grid" id="blogGrid">
-                <!-- 文章卡片由 JS 动态生成 -->
+                <!-- 由 JS 动态生成 -->
             </div>
         </div>
     </section>
 
-    <!-- 技能 -->
+    <!-- 日记详情弹窗 -->
+    <div class="detail-overlay" id="detailOverlay">
+        <div class="detail-container">
+            <button class="detail-close" id="detailClose">✕</button>
+            <div class="detail-content" id="detailContent">
+                <!-- 由 JS 动态填充 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 心灵角落 -->
     <section class="skills section" id="skills">
         <div class="container">
-            <h2 class="section-title">我的技能</h2>
+            <h2 class="section-title">心灵角落</h2>
             <div class="skills-grid">
-                <div class="skill-card">
-                    <div class="skill-icon">&#x1F310;</div>
-                    <h3>前端开发</h3>
-                    <p>HTML / CSS / JavaScript / React</p>
+                <div class="skill-card" data-id="skill-1">
+                    <div class="skill-icon">📖</div>
+                    <h3>阅读</h3>
+                    <p>文学 · 诗歌 · 散文</p>
                 </div>
-                <div class="skill-card">
-                    <div class="skill-icon">&#x1F40D;</div>
-                    <h3>后端开发</h3>
-                    <p>Python / Flask / FastAPI</p>
+                <div class="skill-card" data-id="skill-2">
+                    <div class="skill-icon">🖋️</div>
+                    <h3>写作</h3>
+                    <p>日记 · 随笔 · 片段</p>
                 </div>
-                <div class="skill-card">
-                    <div class="skill-icon">&#x1F4CA;</div>
-                    <h3>数据库</h3>
-                    <p>MySQL / PostgreSQL / MongoDB</p>
+                <div class="skill-card" data-id="skill-3">
+                    <div class="skill-icon">☕</div>
+                    <h3>日常</h3>
+                    <p>手冲 · 窗边 · 发呆</p>
                 </div>
-                <div class="skill-card">
-                    <div class="skill-icon">&#x1F527;</div>
-                    <h3>工具</h3>
-                    <p>Git / Docker / VS Code</p>
+                <div class="skill-card" data-id="skill-4">
+                    <div class="skill-icon">🎞️</div>
+                    <h3>光影</h3>
+                    <p>胶片 · 瞬间 · 叙事</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 联系 -->
+        <!-- 联系 -->
     <section class="contact section" id="contact">
         <div class="container">
             <h2 class="section-title">联系我</h2>
-            <p class="contact-intro">可以通过以下方式找到我，期待与你交流</p>
+            <p class="contact-intro">若你读到某句话时心里泛起涟漪，那便是我们的相遇。</p>
             <div class="social-links">
-                <a href="#" class="social-link" title="GitHub">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                </a>
-                <a href="#" class="social-link" title="邮箱">
+                <a href="#" class="social-link" title="书信">
                     <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
                 </a>
-                <a href="#" class="social-link" title="Twitter / X">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                <!-- 微博图标 -->
+                <a href="https://weibo.com/u/7866063976" class="social-link" title="微博">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M18.088 11.744c-1.184-1.38-2.842-2.526-5.024-3.344 1.162-1.912 1.808-3.662 1.808-5.25 0-1.738-.868-3.04-2.066-3.04-.902 0-1.708 1.014-2.022 2.288-.47-.018-.95-.028-1.434-.028-2.42 0-4.594.626-5.962 1.566C2.28 4.554 1.5 5.924 1.5 7.486c0 1.684.894 2.928 2.186 3.844 1.02.724 2.332 1.144 3.806 1.258-.83.54-1.484 1.366-1.484 2.376 0 1.68 1.486 3.044 3.318 3.044 1.32 0 2.462-.594 3.192-1.56.694-.916 1.068-2.104 1.068-3.384 0-.724-.146-1.394-.398-1.994.566.148 1.066.398 1.498.752.966.788 1.462 1.934 1.462 3.26 0 2.294-1.65 4.196-3.814 4.644.596.466 1.344.734 2.132.734 2.634 0 4.77-2.096 4.77-4.68 0-1.392-.636-2.63-1.682-3.48zM4.64 7.344c0-.86.992-1.568 2.214-1.568 1.222 0 2.214.708 2.214 1.568 0 .86-.992 1.568-2.214 1.568-1.222 0-2.214-.708-2.214-1.568zm13.71 5.474c-.362 1.422-1.986 2.002-2.62 2.002-.092 0-.18-.01-.264-.024.608-.636.982-1.476.982-2.362 0-1.188-.608-2.084-1.456-2.64-.592-.386-1.354-.616-2.178-.666.178-.822.508-1.544.99-2.09.238-.27.42-.474.56-.612.68-.666 1.082-.968 1.404-.968.228 0 .37.232.37.608 0 .462-.176 1.018-.506 1.62.296.126.61.274.936.446.496.264.92.56 1.278.888 1.006.936 1.476 2.074 1.476 3.386 0 .458-.072.894-.2 1.306.49-.09.986-.24 1.442-.482-.01.636-.224 1.22-.58 1.678.012-.016.02-.032.032-.048z"/></svg>
                 </a>
-                <a href="#" class="social-link" title="微信">
+                <a href="#" class="social-link" title="慢递">
                     <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 01.213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 00.167-.054l1.903-1.114a.864.864 0 01.717-.098 10.16 10.16 0 002.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.446 1.703-1.416 3.882-1.98 5.853-1.838-.576-3.583-4.196-6.348-8.596-6.348zM5.785 5.991c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 01-1.162 1.178A1.17 1.17 0 014.623 7.17c0-.651.52-1.18 1.162-1.18zm5.813 0c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 01-1.162 1.178 1.17 1.17 0 01-1.162-1.178c0-.651.52-1.18 1.162-1.18zm5.34 2.867c-1.797-.052-3.746.512-5.28 1.786-1.72 1.428-2.687 3.72-1.78 6.22.942 2.453 3.666 4.229 6.884 4.229.826 0 1.622-.12 2.361-.336a.722.722 0 01.598.082l1.584.926a.272.272 0 00.14.045c.134 0 .24-.11.24-.245 0-.06-.024-.12-.04-.178l-.325-1.233a.49.49 0 01.178-.554C23.028 18.48 24 16.82 24 14.98c0-3.21-2.931-5.952-7.062-6.122zm-2.18 2.769c.535 0 .969.44.969.982a.976.976 0 01-.969.983.976.976 0 01-.969-.983c0-.542.434-.982.97-.982zm4.844 0c.535 0 .969.44.969.982a.976.976 0 01-.969.983.976.976 0 01-.969-.983c0-.542.434-.982.97-.982z"/></svg>
+                </a>
+                <a href="#" class="social-link" title="慢邮">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                 </a>
             </div>
         </div>
@@ -122,8 +134,8 @@
     <!-- 页脚 -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 MyBlog. All rights reserved.</p>
-            <p class="footer-sub">用 ❤️ 构建</p>
+            <p>&copy; 2026 枝文字自留地</p>
+            <p class="footer-sub">微博：枝动来动去</p>
         </div>
     </footer>
 
